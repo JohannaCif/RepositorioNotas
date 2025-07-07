@@ -3,17 +3,9 @@ import dash
 from dash import dcc,html,Input,Output
 import plotly.express as px
 
-try:
-    Dataf = pd.read_excel('notas_estudiantes_limpio.xlsx')
-except Exception as e:
-    print("⚠️ No se pudo cargar el archivo Excel:", e)
-    # Creamos un DataFrame de prueba para que la app no se rompa
-    Dataf = pd.DataFrame({
-        "Carrera": ["Ingeniería"],
-        "Edad": [20],
-        "Promedio": [4.5],
-        "Desempeño": ["Alto"]
-    })
+#cargar los datos excel
+Dataf = pd.read_csv('notas_estudiantes_limpio.csv')
+print(Dataf)
 
 #inicializar la app
 app = dash.Dash(__name__)
